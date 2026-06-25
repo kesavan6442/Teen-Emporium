@@ -172,6 +172,116 @@ const INITIAL_PRODUCTS = [
     isTrending: true,
     isBestSeller: false,
     createdAt: new Date(Date.now() - 5000000).toISOString()
+  },
+  {
+    id: "prod-9",
+    name: "Exclusive Custom Sneaker 1",
+    brand: "Custom",
+    price: 6999,
+    originalPrice: 9999,
+    sizes: [7, 8, 9, 10],
+    colors: ["Default"],
+    images: [
+      "/products/new_sneaker_1.jpeg",
+      "/products/new_sneaker_2.jpeg",
+      "/products/new_sneaker_3.jpeg",
+      "/products/new_sneaker_4.jpeg",
+      "/products/new_sneaker_5.jpeg"
+    ],
+    description: "Exclusive new custom drop featuring premium materials.",
+    stock: 10,
+    isNewArrival: true,
+    isTrending: true,
+    isBestSeller: false,
+    createdAt: new Date(Date.now() - 50000).toISOString()
+  },
+  {
+    id: "prod-10",
+    name: "Exclusive Custom Sneaker 2",
+    brand: "Custom",
+    price: 7999,
+    originalPrice: 11999,
+    sizes: [7, 8, 9, 10],
+    colors: ["Default"],
+    images: [
+      "/products/new_sneaker_6.jpeg",
+      "/products/new_sneaker_7.jpeg",
+      "/products/new_sneaker_8.jpeg",
+      "/products/new_sneaker_9.jpeg",
+      "/products/new_sneaker_10.jpeg"
+    ],
+    description: "Exclusive new custom drop featuring premium materials.",
+    stock: 8,
+    isNewArrival: true,
+    isTrending: false,
+    isBestSeller: false,
+    createdAt: new Date(Date.now() - 60000).toISOString()
+  },
+  {
+    id: "prod-11",
+    name: "Exclusive Custom Sneaker 3",
+    brand: "Custom",
+    price: 8999,
+    originalPrice: 12999,
+    sizes: [7, 8, 9, 10],
+    colors: ["Default"],
+    images: [
+      "/products/new_sneaker_11.jpeg",
+      "/products/new_sneaker_12.jpeg",
+      "/products/new_sneaker_13.jpeg",
+      "/products/new_sneaker_14.jpeg",
+      "/products/new_sneaker_15.jpeg"
+    ],
+    description: "Exclusive new custom drop featuring premium materials.",
+    stock: 5,
+    isNewArrival: true,
+    isTrending: true,
+    isBestSeller: false,
+    createdAt: new Date(Date.now() - 70000).toISOString()
+  },
+  {
+    id: "prod-12",
+    name: "Exclusive Custom Sneaker 4",
+    brand: "Custom",
+    price: 5999,
+    originalPrice: 8999,
+    sizes: [7, 8, 9, 10],
+    colors: ["Default"],
+    images: [
+      "/products/new_sneaker_16.jpeg",
+      "/products/new_sneaker_17.jpeg",
+      "/products/new_sneaker_18.jpeg",
+      "/products/new_sneaker_19.jpeg",
+      "/products/new_sneaker_20.jpeg"
+    ],
+    description: "Exclusive new custom drop featuring premium materials.",
+    stock: 12,
+    isNewArrival: true,
+    isTrending: false,
+    isBestSeller: false,
+    createdAt: new Date(Date.now() - 80000).toISOString()
+  },
+  {
+    id: "prod-13",
+    name: "Exclusive Custom Sneaker 5",
+    brand: "Custom",
+    price: 9999,
+    originalPrice: 14999,
+    sizes: [7, 8, 9, 10],
+    colors: ["Default"],
+    images: [
+      "/products/new_sneaker_21.jpeg",
+      "/products/new_sneaker_22.jpeg",
+      "/products/new_sneaker_23.jpeg",
+      "/products/new_sneaker_24.jpeg",
+      "/products/new_sneaker_25.jpeg"
+    ],
+    description: "Exclusive new custom drop featuring premium materials.",
+    stock: 2,
+    isNewArrival: true,
+    isTrending: true,
+    isBestSeller: true,
+    createdAt: new Date(Date.now() - 90000).toISOString()
   }
 ];
 
@@ -243,7 +353,7 @@ export const AppProvider = ({ children }) => {
     if (isMockEnabled) {
       // Setup mock products and reviews in localStorage
       const localProducts = localStorage.getItem("teens_products");
-      if (!localProducts || !JSON.parse(localProducts).some(p => p.id === "prod-7") || JSON.parse(localProducts).find(p => p.id === "prod-7").images.includes("/sneaker_views.png")) {
+      if (!localProducts || !JSON.parse(localProducts).some(p => p.id === "prod-9") || JSON.parse(localProducts).find(p => p.id === "prod-7").images.includes("/sneaker_views.png")) {
         localStorage.setItem("teens_products", JSON.stringify(INITIAL_PRODUCTS));
         setProducts(INITIAL_PRODUCTS);
       } else {

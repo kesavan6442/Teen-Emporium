@@ -212,12 +212,30 @@ export default function AdminDashboard() {
     const file = e.target.files[0];
     if (!file) return;
 
+    setIsUploading(true);
+
     if (!storage) {
-      alert("Firebase Storage is not initialized.");
+      // Mock mode: Convert to base64 Data URL so it works without Firebase
+      try {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setImages((prev) => [...prev, reader.result]);
+          setIsUploading(false);
+          e.target.value = null;
+        };
+        reader.onerror = () => {
+          alert("Failed to read local file.");
+          setIsUploading(false);
+        };
+        reader.readAsDataURL(file);
+      } catch (err) {
+        console.error(err);
+        alert("Failed to process local image.");
+        setIsUploading(false);
+      }
       return;
     }
 
-    setIsUploading(true);
     try {
       const fileRef = ref(storage, `products/${Date.now()}_${file.name}`);
       await uploadBytes(fileRef, file);
@@ -225,7 +243,7 @@ export default function AdminDashboard() {
       setImages((prev) => [...prev, downloadUrl]);
     } catch (err) {
       console.error("Upload failed", err);
-      alert("Failed to upload image.");
+      alert("Failed to upload image. Please check your Firebase rules and config.");
     } finally {
       setIsUploading(false);
       e.target.value = null;
